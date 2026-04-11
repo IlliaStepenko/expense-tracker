@@ -43,6 +43,7 @@ CORE_APPS = [
 
 PROJECT_APPS = [
     "users",
+    "expenses",
 ]
 
 INSTALLED_APPS = CORE_APPS + PROJECT_APPS
@@ -84,6 +85,7 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
 }
 
 SIMPLE_JWT = {
