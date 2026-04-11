@@ -1,0 +1,14 @@
+[tool.black]
+line-length = 88
+target-version = ['py314']
+exclude = '''
+/(
+    migrations
+  | __pycache__
+  | docker
+  | .venv
+)/
+'''
+
+[tool.isort]
+profile = "black"

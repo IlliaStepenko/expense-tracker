@@ -1,0 +1,20 @@
+# ======================
+# Django core
+# ======================
+Django>=5.0,<6.0
+
+# ======================
+# Django REST Framework
+# ======================
+djangorestframework>=3.15
+djangorestframework-simplejwt>=5.3
+django-filter>=24.0
+django-cors-headers>=4.5
+
+# ======================
+# Celery stack
+# ======================
+celery>=5.4
+redis>=5.0
+django-celery-beat>=2.6
+django-celery-results>=2.6

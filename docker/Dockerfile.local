@@ -1,0 +1,29 @@
+FROM python:3.14-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY requirements /app/requirements
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements/local.txt
+
+COPY backend /app/backend
+
+RUN useradd -m project-user
+RUN chown -R project-user:project-user /app
+
+RUN mkdir -p /app/backend/staticfiles \
+    && chown -R project-user:project-user /app/backend/staticfiles
+
+
+USER project-user
+
+WORKDIR /app/backend
+
+EXPOSE 8000
