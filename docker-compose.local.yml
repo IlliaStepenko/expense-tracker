@@ -11,6 +11,8 @@ services:
     entrypoint: "/app/entrypoints/local/web.sh"
     ports:
       - "8000:8000"
+    depends_on:
+      - db
 
   celery:
     build:
@@ -19,6 +21,8 @@ services:
     volumes:
       - .:/app
     entrypoint: "/app/entrypoints/local/celery.sh"
+    depends_on:
+      - db
 
   celery_beat:
     build:
@@ -27,6 +31,8 @@ services:
     volumes:
       - .:/app
     entrypoint: "/app/entrypoints/local/celery_beat.sh"
+    depends_on:
+      - db
 
   db:
     ports:

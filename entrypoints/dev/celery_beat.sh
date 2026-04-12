@@ -2,8 +2,10 @@
 
 set -e
 
-echo "Starting Celery Beat ..."
+export PYTHONPATH=$(pwd)
 
-exec celery -A celery beat \
-  --loglevel=INFO \
-  --max-interval=30
+echo "Starting Celery Beat..."
+
+exec python -m celery -A celery_app beat \
+    --loglevel=INFO \
+    --max-interval=30

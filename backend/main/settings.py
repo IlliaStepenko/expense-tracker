@@ -45,6 +45,7 @@ PROJECT_APPS = [
     "users",
     "expenses",
     "export",
+    "reports",
 ]
 
 INSTALLED_APPS = CORE_APPS + PROJECT_APPS

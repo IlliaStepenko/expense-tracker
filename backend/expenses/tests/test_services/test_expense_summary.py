@@ -1,10 +1,12 @@
 from decimal import Decimal
 
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.utils import timezone
 from expenses.models import Category, Expense
 from expenses.services import ExpenseSummaryService
-from users.models import User
+
+User = get_user_model()
 
 
 class ExpenseSummaryServiceTests(TestCase):

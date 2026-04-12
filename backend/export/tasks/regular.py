@@ -7,7 +7,7 @@ from expenses.models import Expense
 from export.models import ExportResult
 
 
-@shared_task(bind=True)
+@shared_task(bind=True, ignore_result=True)
 def generate_export(self, export_result_id):
     export_result = ExportResult.objects.get(id=export_result_id)
     try:
