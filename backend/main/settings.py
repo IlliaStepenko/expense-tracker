@@ -39,6 +39,7 @@ CORE_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
+    "drf_spectacular",
 ]
 
 PROJECT_APPS = [
@@ -88,6 +89,13 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Expenses API',
+    'DESCRIPTION': 'API для управления расходами и категориями',
+    'VERSION': '1.0.0',
 }
 
 SIMPLE_JWT = {
