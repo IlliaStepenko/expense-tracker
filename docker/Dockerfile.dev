@@ -25,6 +25,9 @@ RUN chown -R project-user:project-user /app
 RUN mkdir -p /app/backend/staticfiles \
     && chown -R project-user:project-user /app/backend/staticfiles
 
+RUN mkdir -p /app/backend/media \
+    && chown -R project-user:project-user /app/backend/media
+
 
 USER project-user
 

@@ -4,7 +4,7 @@ export PYTHONPATH=$(pwd)
 
 echo "Starting Celery Worker..."
 
-exec celery -A celery worker \
+exec python -m celery -A celery_app worker \
   --loglevel=INFO \
   --concurrency=2 \
   --prefetch-multiplier=1

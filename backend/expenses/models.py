@@ -1,3 +1,5 @@
+from decimal import ROUND_HALF_UP, Decimal
+
 from django.db import models
 
 
@@ -25,3 +27,7 @@ class Expense(models.Model):
 
     def __str__(self):
         return f"{self.amount} - {self.category.name}"
+
+    @property
+    def quantized_amount(self):
+        return self.amount.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
